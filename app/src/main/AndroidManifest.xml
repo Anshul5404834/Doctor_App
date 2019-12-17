@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.anshul5404834.doctor_app"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/doctor"
+        android:label="@string/doctor"
+        android:networkSecurityConfig="@xml/network_security"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <activity android:name="com.anshul5404834.doctor_app.Booking">
+
+        </activity>
+        <activity android:name="com.anshul5404834.doctor_app.PhoneAuthActivity">
+        </activity>
+        <activity
+            android:name="com.anshul5404834.doctor_app.VideoActivity"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.anshul5404834.doctor_app.Thankyou" />
+        <activity
+            android:name="com.anshul5404834.doctor_app.SettingsActivity"
+            android:parentActivityName="com.anshul5404834.doctor_app.VideoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.anshul5404834.doctor_app.VideoActivity" />
+        </activity>
+        <activity android:name="com.anshul5404834.doctor_app.booking_history"></activity>
+        <activity android:name="com.anshul5404834.doctor_app.All_stuff"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".check_code"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+        <activity android:name=".Appointment_history"></activity>
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_fxCpiJlwStH0wc"
+            />
+    </application>
+
+</manifest>

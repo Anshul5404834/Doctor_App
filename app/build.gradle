@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.anshul5404834.doctor_app"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    splits {
+        abi {
+            // Enable ABI split
+            enable true
+
+            // Clear list of ABIs
+            reset()
+
+            // Specify each architecture currently supported by the Video SDK
+            include "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+
+            // Specify that we do not want an additional universal SDK
+            universalApk false
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+dependencies {
+    testImplementation 'junit:junit:4.13-beta-3'
+    implementation 'com.android.support:support-media-compat:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation "com.twilio:video-android:4.2.0"
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation "com.koushikdutta.ion:ion:2.2.1"
+    implementation "com.android.support:preference-v14:28.0.0"
+    implementation "com.android.support:design:28.0.0"
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.google.firebase:firebase-database:17.0.0'
+    implementation 'com.google.firebase:firebase-storage:17.0.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta1'
+    //  implementation 'com.google.firebase:firebase-firestore:19.0.2'
+    implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
+    implementation 'com.razorpay:checkout:1.5.5'
+
+}
+apply plugin: 'com.google.gms.google-services'
